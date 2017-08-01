@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+
+</div>
+<h2>Here are some links to help you start: </h2>
+<app-courses [yr_solve]="yr_solve"></app-courses>
+--------------------------------------
+<app-author></app-author>
+
+<app-favorite [isFavorite]="post.favorite" (onYR)="yell($event)"></app-favorite>
+
+<app-heart
+  [Islike]="post.like"
+  [Total] = "post.total"
+  (onYR)="yell($event)"
+></app-heart>
+
+<app-vote
+  [upVoted]="post.upvote"
+  [Total] = "post.total"
+></app-vote>
+
+<app-challenge></app-challenge>
+
+<ul [ngSwitch]="post.total">
+  <li *ngSwitchCase="10">oke its 10</li>
+  <li *ngSwitchCase="20">oke its 20</li>
+  <li *ngSwitchDefault="">not switch matches</li>
+</ul>
+
+-------------------------------------------
+<br>
+<span>{{pipePractice.title | uppercase | summary }}</span><br>
+<span>{{pipePractice.title | lowercase |summary:'9'}}</span><br>
+<span>{{pipePractice.students | number}}</span><br>
+<span>{{pipePractice.price | currency:$ }}</span><br>
+<span>{{pipePractice.rating | number:'2.2-2'}}</span><br>
+-----------------------------------------
+<app-form></app-form>

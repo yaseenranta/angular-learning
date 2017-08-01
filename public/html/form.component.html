@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+<form #f="ngForm">
+  <pre>{{f.value | json}}</pre>
+  <div class="form-group">
+    <label for="usr">Name:</label>
+    <!--<input type="text" class="form-control" id="usr" [(ngModel)]="data.name" name="name">-->
+    <input type="text" class="form-control" name="name" ngModel required>
+    <!--<input type="text" class="form-control" name="name" #name required>-->
+  </div>
+  <div class="form-group">
+    <label for="pwd">Email:</label>
+    <!--<input type="email" class="form-control" id="pwd" [(ngModel)]="data.email" name="email">-->
+    <input type="email" class="form-control" id="pwd" name="email" ngModel required>
+    <!--<input type="email" class="form-control" id="pwd" name="email" #email>-->
+  </div>
+  <div class="form-group">
+    <label for="comment">Message:</label>
+    <!--<textarea class="form-control" rows="5" id="comment" [(ngModel)]="data.message" name="message"></textarea>-->
+    <textarea class="form-control" rows="5" id="comment" name="message" ngModel required></textarea>
+    <!--<textarea class="form-control" rows="5" id="comment" name="message" #message></textarea>-->
+  </div>
+  <div class="form-group">
+    <!--{name :name.value,email:email.value,message:message.value}-->
+    <button class="btn btn-info" (click)="save(f.value)">Save</button>
+  </div>
+</form>

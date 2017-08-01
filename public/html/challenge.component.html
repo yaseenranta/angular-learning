@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<div class="media" *ngFor="let post of posts">
+  <div class="media-left">
+    <a href="post.url">
+
+      <img class="media-object" src="http://lorempixel.com/100/100/people?post.image" alt="">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{post.title}}</h4>
+    <app-heart
+      [Islike]="post.like"
+      [Total] = "post.total"
+      (onYR)="yell($event)"
+    ></app-heart>
+  </div>
+</div>

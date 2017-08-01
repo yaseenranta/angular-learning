@@ -1,0 +1,13 @@
+<span *ngIf="courses.length > 0">
+<h1>{{ title }}</h1>
+
+<ul>
+  <li *ngFor="let course of courses"> {{ course }}</li>
+
+
+</ul>
+
+</span>
+
+
+<h1 *ngIf="courses.length == 0">You Don't have any course yet.</h1>

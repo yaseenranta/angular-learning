@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+
+<i class="glyphicon  glyphicon-menu-up"
+   [class.orange] = "upVoted"
+   (click)="onClickUp()"></i><br>
+{{Total}}
+<br><i class="glyphicon glyphicon-menu-down"
+       [class.orange] = "downVoted"
+   (click)="onClickDown()"></i>

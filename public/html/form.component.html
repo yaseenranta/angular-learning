@@ -1,0 +1,85 @@
+<h1>{{title}}</h1>
+
+<form #f="ngForm" (submit)="save(f.value)">
+  <pre>{{f.value | json}}</pre>
+  <div class="form-group">
+    <label for="usr">Name:</label>
+    <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="data.name"
+          name="name"
+          #name="ngModel" required minlength="3">
+    <!--<input type="text" class="form-control" name="name" ngModel required #name>-->
+    <!--<input type="text" class="form-control" name="name" #name required>-->
+    <div *ngIf="name.touched && name.errors">
+      <div
+        class="alert alert-danger"
+        *ngIf="name.errors.required">
+        Name is Required
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="name.errors.minlength">
+        Name must be {{name.errors.minlength.requiredLength}} characters
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="pwd">Email:</label>
+    <input
+          type="email"
+          class="form-control"
+          [(ngModel)]="data.email"
+          name="email"
+          #email="ngModel" required>
+    <!--<input type="email" class="form-control" id="pwd" name="email" ngModel required>-->
+    <!--<input type="email" class="form-control" id="pwd" name="email" #email>-->
+
+    <div
+      class="alert alert-danger"
+      *ngIf="!email.valid && email.touched">
+      Email is Required
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="comment">Message:</label>
+    <textarea
+            class="form-control"
+            rows="5"
+            [(ngModel)]="data.message"
+            name="message"
+            #message="ngModel" required></textarea>
+    <!--<textarea class="form-control" rows="5" id="comment" name="message" ngModel required></textarea>-->
+    <!--<textarea class="form-control" rows="5" id="comment" name="message" #message></textarea>-->
+
+    <div
+      class="alert alert-danger"
+      *ngIf="!message.valid && message.touched">
+      Message is Required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="selectbox">User Type</label>
+    <select
+        name="selectbox"
+        class="form-control"
+        [(ngModel)]="data.selectbox"
+        #selectbox="ngModel"
+      required>
+      <option [value]="null">Please Select</option>
+      <option *ngFor="let option of options" [value]="option">
+        {{option.name}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="!selectbox.valid && selectbox.touched">
+      User type required
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" type="submit" [disabled]="!f.valid">Save</button>
+  </div>
+</form>

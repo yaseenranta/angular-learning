@@ -11,6 +11,8 @@ import {LikeComponent} from './components/like.component';
 import {VoteComponent} from './components/vote.component';
 import {ChallengeComponent} from './components/challenge.component';
 import {SummaryPipe} from './pipes/summary.pipe';
+import {YRFormComponent} from './components/form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import {SummaryPipe} from './pipes/summary.pipe';
     LikeComponent,
     VoteComponent,
     ChallengeComponent,
+    YRFormComponent,
     SummaryPipe
   ],
   imports: [
